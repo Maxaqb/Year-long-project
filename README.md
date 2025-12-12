@@ -11,7 +11,7 @@ A program that takes a name of an element as input and outputs it's amount of su
 * User friendly interface for inputting element names and displaying results
 * Input validation to ensure accurate and reliable results
 
-  ## Summarized pseudocode of program
+## Summarized pseudocode of program
 ```
 MAIN MENU
 DISPLAY "Welcome to Elemental Analyzer!"
