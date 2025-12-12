@@ -12,8 +12,8 @@ A program that takes a name of an element as input and outputs it's amount of su
 * Input validation to ensure accurate and reliable results
 
   ## Summarized pseudocode of program
+```
 MAIN MENU
-
 DISPLAY "Welcome to Elemental Analyzer!"
 
 DISPLAY "1. Retrieve element information"
@@ -37,21 +37,14 @@ IF user_choice == 1 THEN
   VALIDATE element_name
   
     IF valid THEN
-    
       RETRIEVE element_data
-      
       CALCULATE subatomic_particles AND quantum_numbers
-      
       DISPLAY subatomic_particles AND quantum_numbers
-      
     ELSE
-    
       DISPLAY "Invalid element name"
-      
     END IF
 
 ELSE IF user_choice == 2 THEN
-
   QUIZ MODE
   
   GENERATE random questions about elements
@@ -83,3 +76,4 @@ ELSE
   DISPLAY "Invalid choice. Please choose again."
   
   REPEAT MAIN MENU (LOOP)
+  ```
