@@ -1,4 +1,4 @@
-# Elemental Analyzer: Quantum Insights
+# Elementalist: Master of Atoms (MoA)
 
 ## Description
 
