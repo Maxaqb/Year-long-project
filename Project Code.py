@@ -115,7 +115,7 @@ asciiArt = r"""
     """
 
 #Function for element lookup
-def elementLookup():
+def element_lookup():
     print("-----Element Lookup-----")
     print()  # SPACING
 
@@ -185,7 +185,7 @@ while True:
             time.sleep(1.5)
 
             #Calling the Element lookup function
-            elementLookup()
+            element_lookup()
 
         elif choice == 2:
             print("______________")
