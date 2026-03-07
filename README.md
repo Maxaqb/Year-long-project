@@ -1,57 +1,55 @@
 # Elementalist: Master of Atoms (MoA)
 
 ## Description
-
-A program that takes a name of an element as input and outputs it's amount of subatomic particles and it's four different quantum numbers. This project aims to provide a useful tool for students and maybe even professionals in chemistry to quickly retrieve detailed information about the atomic structure of elements. Additionaly, this program has an option for a quiz/trivia, allowing the user to test their skills and what they have learned from the program itself.
+Elementalist: Master of Atoms (EMoA) is an educational game that helps students learn about the periodic table. Users can select an atomic number (1–118) to instantly view facts about that element, such as its name, symbol, and the number of particles (protons, electrons, and neutrons) inside its atoms. The program features a simple menu that allows users to look up elements, or view instructions..
 
 ## Features
+Element Lookup: Retrieves detailed data for any element (atomic number 1–118).
 
-* Calculates subatomic particles (protons, neutrons, electrons) for the given element
-* Calculates the given element's four quantum numbers (n, l, ml, ms) for each element
-* User friendly interface for inputting element names and displaying results
-* Input validation to ensure accurate and reliable results
+Subatomic Calculation: Automatically calculates the number of protons, electrons, and the average number of neutrons.
 
-## Summarized pseudocode of program
-```
-MAIN MENU
-DISPLAY "Welcome to Elemental Analyzer!"
-DISPLAY "1. Retrieve element information"
-DISPLAY "2. Play quiz/trivia mode"
-DISPLAY "3. Exit"
+Input Validation: Robust error handling ensures the program stays stable even with incorrect inputs.
 
-DISPLAY ""
+Interactive Menu: A user-friendly, loop-based interface that allows users to explore features or exit the program gracefully.
 
-DISPLAY "Choose an option: "
-INPUT user_choice
+Instructional Guide: Built-in guidance on how to navigate the program and understand its purpose.
 
-IF user_choice == 1 THEN
-  DISPLAY "Enter element name: "
-  INPUT element_name
-  VALIDATE element_name
-    IF valid THEN
-      RETRIEVE element_data
-      CALCULATE subatomic_particles AND quantum_numbers
-      DISPLAY subatomic_particles AND quantum_numbers
-    ELSE
-      DISPLAY "Invalid element name"
-    END IF
+## Logic Plan / Summarized pseudocode of program
 
-ELSE IF user_choice == 2 THEN
-  QUIZ MODE
-  GENERATE random questions about elements
-  DISPLAY question
-  INPUT user_answer
-  CHECK answer
-    IF correct THEN
-      DISPLAY "Correct!"
-    ELSE
-      DISPLAY "Incorrect. The correct answer is __"
-    END IF
-      REPEAT until user chooses to exit
+    IMPORT periodictable, time, json
 
-ELSE IF user_choice == 3 THEN
-  EXIT PROGRAM
-ELSE
-  DISPLAY "Invalid choice. Please choose again."
-  REPEAT MAIN MENU (LOOP)
-  ```
+    FUNCTION element_lookup:
+    DISPLAY "-----Element Lookup-----"
+    LOOP FOREVER:
+        TRY:
+            PROMPT user for atomic number
+            IF atomic number is between 1 and 118:
+                GET element from periodictable
+                DISPLAY name, symbol, mass, charge, protons, electrons
+                CALCULATE average neutrons = mass - protons
+                DISPLAY average neutrons
+                BREAK LOOP
+            ELSE:
+                DISPLAY "Invalid atomic number (1-118)"
+        EXCEPT ValueError:
+            DISPLAY "Invalid input. Please enter a number"
+
+	MAIN PROGRAM LOOP:
+    	LOOP FOREVER:
+        	DISPLAY Main Menu options (1-4)
+        	TRY:
+            	PROMPT user for choice
+            	IF choice == 1:
+                	DISPLAY asciiArt
+                	CALL element_lookup
+            	ELSE IF choice == 2:
+                	DISPLAY "Quiz test under construction"
+            	ELSE IF choice == 3:
+                	DISPLAY instructions and game purpose
+            	ELSE IF choice == 4:
+                	DISPLAY "Thanks for playing! Goodbye."
+                	BREAK LOOP
+            	ELSE:
+                	DISPLAY "Retry"
+        	EXCEPT ValueError:
+            	DISPLAY "Invalid menu choice"
