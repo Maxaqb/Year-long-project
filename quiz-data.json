@@ -1,0 +1,50 @@
+{
+  "questions": [
+    {
+      "I" : "What is the chemical element of Au?",
+      "II" : "What is the chemical symbol of Copper?",
+      "III" : "Atoms are represented by a ___?",
+      "IV" : "How much electrons does Copper have?",
+      "V" : "An element is a substance that contains ___.",
+      "VI" : "The chemical formula of the compound ___ is CO2.",
+      "VII" : "Chemical reactions can be represented by ___.",
+      "VIII" : "All substances are made of ___?",
+      "IX" : "An ___ is the building block of matter.",
+      "X" : "A ___ is made from different elements chemically joined together.",
+      "XI" : "What is the name of the compound formed when sodium and chlorine join together?",
+      "XII" : "What is the name of the compound formed when magnesium and oxygen join together?",
+      "XIII" : "Elements are shown in the ___.",
+      "XIV" : "Chemical Reactions always involve the ___.",
+      "XV" : "Compounds contain ___ in fixed proportions.",
+      "XVI" : "Water is a ___ formed by chemical reaction of the elements Oxygen and Hydrogen.",
+      "XVII" : "Is Nitrogen (N) a polar elements?",
+      "XVIII" : "Is Carbon Monoxide (CO) polar?",
+      "XIX" : "What is the atomic number of Fe (Iron)?",
+      "XX" : "Which of the two elements is heavier? Argon (Ar) or Calcium (Ca)?"
+    }
+  ],
+  "answers": [
+    {
+      "1" : "Gold",
+      "2" : "Cu",
+      "3" : "Chemical Symbol",
+      "4" : "29",
+      "5" : "Atoms",
+      "6" : "Carbon Dioxide",
+      "7" : "Equations",
+      "8" : "Atoms",
+      "9" : "Atoms",
+      "10" : "Compound",
+      "11" : "Sodium Chloride",
+      "12" : "Magnesium Oxide",
+      "13" : "Periodic table",
+      "14" : "Chemical bonds",
+      "15" : "Elements",
+      "16" : "Compound",
+      "17" : "Yes",
+      "18" : "No",
+      "19" : "26",
+      "20" : "Calcium"
+    }
+  ]
+}
