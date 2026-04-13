@@ -20,7 +20,12 @@
       "XVII" : "Is Nitrogen (N) a polar elements?",
       "XVIII" : "Is Carbon Monoxide (CO) polar?",
       "XIX" : "What is the atomic number of Fe (Iron)?",
-      "XX" : "Which of the two elements is heavier? Argon (Ar) or Calcium (Ca)?"
+      "XX" : "Which of the two elements is heavier? Argon (Ar) or Calcium (Ca)?",
+      "XXI" : "What is the hardest element in the periodic table?",
+      "XXII" : "What is the densest element in the table?",
+      "XXIII" : "What is the most electromagnetive element in the periodic table?",
+      "XXIV" : "Which element is the most metallic?",
+      "XXV" : "What's the most stable element?"
     }
   ],
   "answers": [
@@ -44,7 +49,12 @@
       "17" : "Yes",
       "18" : "No",
       "19" : "26",
-      "20" : "Calcium"
+      "20" : "Calcium",
+      "21" : "Carbon",
+      "22" : "Osmium",
+      "23" : "Fluorine",
+      "24" : "Francium,
+      "25" : "Iron"
     }
   ]
 }
