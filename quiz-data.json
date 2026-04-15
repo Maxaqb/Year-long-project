@@ -26,6 +26,7 @@
       "XXIII" : "What is the most electromagnetive element in the periodic table?",
       "XXIV" : "Which element is the most metallic?",
       "XXV" : "What's the most stable element?"
+      "XXVI" : "Is Krypton a noble gas?"
     }
   ],
   "answers": [
@@ -54,7 +55,8 @@
       "22" : "Osmium",
       "23" : "Fluorine",
       "24" : "Francium",
-      "25" : "Iron"
+      "25" : "Iron",
+      "26" : "Yes"
     }
   ]
 }
