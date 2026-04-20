@@ -222,6 +222,33 @@ while True:
 
             print("THIS QUIZ CONISTS OF 25 ITEMS FOCUSING ON THE DIFFERENT ELEMENTS OF THE PERIODIC TABLE")
             print("MAKE SURE YOU READ THE QUESTIONS CAREFULLY AND TYPE WHAT IS ASKED FOR")
+            questions = data["questions"][0]
+            answers = data["answers"][0]
+
+            score = 0
+            total = len(questions)
+
+            # Randomize question order
+            question_items = list(questions.items())
+            random.shuffle(question_items)
+
+            # Ask questions
+            for i, (key, question) in enumerate(question_items, start=1):
+                print(f"Q{i}: {question}")
+                user_answer = input("Your answer: ").strip()
+
+                correct_answer = answers[str(list(questions.keys()).index(key) + 1)]
+
+                if user_answer.lower() == correct_answer.lower():
+                    print("Correct!")
+                    print()
+                    score += 1
+                else:
+                    print()
+                    print(f"Wrong :( The correct answer is '{correct_answer}'.")
+                    print(f"Explanation: This is because {question} = {correct_answer}")
+                    print("="*50)
+                    print()
              
         elif choice == 3:
             print("What is our educational game about?")
