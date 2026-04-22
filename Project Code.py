@@ -249,7 +249,7 @@ while True:
                     print()
                     print(f"Wrong :( The correct answer is '{correct_answer}'.")
                     print(f"Explanation: This is because {question} = {correct_answer}")
-                    print("="*50)
+                    print("="*100)
                     print()
 
             # Final score
