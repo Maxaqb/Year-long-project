@@ -1,22 +1,24 @@
-#MAX ARVEE Q. BARLIN
-#JOHN ZSHADRAQ YTHIEL 0. BAYSA
-#SEAN MATTHEW N. PALATINO
-#8 - SAMPAGUITA
+# MAX ARVEE Q. BARLIN
+# JOHN ZSHADRAQ YTHIEL 0. BAYSA
+# SEAN MATTHEW N. PALATINO
+# 8 - SAMPAGUITA
 
-#WELCOME TO OUR LOVELY, AMAZING, MAGNIFICENT, BEAUTIFUL, MOST PROFOUND, ACCOMPLISHED, WONDERFULLEST, AWESOMEST, EDUCATIONAL GAME (subjective)
+# WELCOME TO OUR LOVELY, AMAZING, MAGNIFICENT, BEAUTIFUL, MOST PROFOUND, ACCOMPLISHED, WONDERFULLEST, AWESOMEST, EDUCATIONAL GAME (subjective)
 
-#Importing periodictable to make life easier
+# Importing periodictable to make life easier
 import periodictable
 import time
 import json
+import random
 
-#Opening the Json file for the Quiz Test!
-with open('quiz.data.json', 'r') as file:
+from numpy.ma.core import append
+
+# Opening the Json file for the Quiz Test!
+with open('quiz-data.json', 'r') as file:
     data = json.load(file)
-print(data)
-#Defining variables and functions
+# Defining variables and functions
 
-#The ascii art of the periodic table
+# The ascii art of the periodic table
 asciiArt = r"""
      |                 |                 |                 |                 |                 |                 |                 |                 |                 |                 |                 |                 |                 |                 |                 |                 |                 |                 |
      |        1        |        2        |        3        |        4        |        5        |        6        |        7        |        8        |        9        |       10        |       11        |       12        |       13        |       14        |       15        |       16        |       17        |       18        |
@@ -115,34 +117,25 @@ asciiArt = r"""
                                                            |Actinium         |Thorium          |Protactinium     |Uranium          |Neptunium        |Plutonium        |Americium        |Curium           |Berkelium        |Californium      |Einsteinium      |Fermium          |Mendelevium      |Nobelium         |Lawrencium       |
                                                            |(227)            |232.04           |231.04           |238.03           |(237)            |(244)            |(243)            |(247)            |(247)            |(251)            |(252)            |(257)            |(258)            |(259)            |(266)            |
                                                       -----+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
-1
+
     """
 
-#Function for element lookup
+
+# Function for element lookup
 def element_lookup():
-    print(r""" 
-███████╗██╗     ███████╗███╗   ███╗███████╗███╗   ██╗████████╗
-██╔════╝██║     ██╔════╝████╗ ████║██╔════╝████╗  ██║╚══██╔══╝
-█████╗  ██║     █████╗  ██╔████╔██║█████╗  ██╔██╗ ██║   ██║   
-██╔══╝  ██║     ██╔══╝  ██║╚██╔╝██║██╔══╝  ██║╚██╗██║   ██║   
-███████╗███████╗███████╗██║ ╚═╝ ██║███████╗██║ ╚████║   ██║   
-╚══════╝╚══════╝╚══════╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝   
-                                                              
-██╗      ██████╗  ██████╗ ██╗  ██╗██╗   ██╗██████╗            
-██║     ██╔═══██╗██╔═══██╗██║ ██╔╝██║   ██║██╔══██╗           
-██║     ██║   ██║██║   ██║█████╔╝ ██║   ██║██████╔╝           
-██║     ██║   ██║██║   ██║██╔═██╗ ██║   ██║██╔═══╝            
-███████╗╚██████╔╝╚██████╔╝██║  ██╗╚██████╔╝██║                
-╚══════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝                
-    """)
+    print("="*43)
+    print(r""" ┌─┐┬  ┌─┐┌┬┐┌─┐┌┐┌┌┬┐  ┬  ┌─┐┌─┐┬┌─┬ ┬┌─┐
+ ├┤ │  ├┤ │││├┤ │││ │   │  │ ││ │├┴┐│ │├─┘
+ └─┘┴─┘└─┘┴ ┴└─┘┘└┘ ┴   ┴─┘└─┘└─┘┴ ┴└─┘┴  """)
+    print("="*43)
     print()  # SPACING
 
-    #Loop if the user inputs an invalid choice
+    # Loop if the user inputs an invalid choice
     while True:
         try:
             atomicNumber = int(input("Enter the atomic number of an element: "))
 
-            #The validation check
+            # The validation check
             if 1 <= atomicNumber <= 118:
                 element = periodictable.elements[atomicNumber]
                 time.sleep(.5)
@@ -163,31 +156,47 @@ def element_lookup():
                 print(f"Average Number of Neutrons: {averageNeutrons}")
                 break
             else:
-                #If user input is not a valid choice (1-118)
+                # If user input is not a valid choice (1-118)
+                print()
+                print("="*60)
                 print("That is not a valid atomic number. Please enter 1-118.")
+                print("=" * 60)
+                print()
         except ValueError:
-            #If user doesn't input a number
+            # If user doesn't input a number
+            print()
+            print("=" * 60)
             print("Invalid input. Please enter a number.")
+            print("=" * 60)
+            print()
 
 
-#Main Program Loop
+# Main Program Loop
 while True:
-    print("WELCOME TO OUR EDUCATIONAL GAME!!")
     print()
+    print("=" * 62)
+    print("""   ┬ ┬┌─┐┬  ┌─┐┌─┐┌┬┐┌─┐  ┌┬┐┌─┐  ┌─┐┬ ┬┬─┐  ┌─┐┌─┐┌┬┐┌─┐┬
+   │││├┤ │  │  │ ││││├┤    │ │ │  │ ││ │├┬┘  │ ┬├─┤│││├┤ │
+   └┴┘└─┘┴─┘└─┘└─┘┴ ┴└─┘   ┴ └─┘  └─┘└─┘┴└─  └─┘┴ ┴┴ ┴└─┘o""")
+    print("=" * 62)
+    print()
+
     print("Menu:")
-    print("_______________________________________________")
+    print("===============================================")
     print("1) View The Periodic Table and Lookup Element")
-    print("_______________________________________________")
+    print("===============================================")
     print("2) Quiz test!")
-    print("_______________________________________________")
+    print("===============================================")
     print("3) Instructions")
-    print("_______________________________________________")
+    print("===============================================")
     print("4) Exit Game")
-    print("_______________________________________________")
+    print("===============================================")
     print()
 
     try:
-        choice = int(input("enter your choice(1, 2, 3, or 4): "))
+        print("Hey There!")
+        print("I recommend you to see the periodic table before choosing the quiz :D")
+        choice = int(input("Please enter your choice(1, 2, 3, or 4): "))
         print()
 
         if choice == 1:
@@ -198,30 +207,23 @@ while True:
             time.sleep(2)
             print()
             print("Periodic table:")
+            time.sleep(2)
             print(asciiArt)
             print()
             time.sleep(1.5)
 
-            #Calling the Element lookup function
+            # Calling the Element lookup function
             element_lookup()
 
         elif choice == 2:
-            print(r""" 
-                                                                                                            
-███████╗███████╗███████╗███████╗███████╗███████╗███████╗███████╗███████╗███████╗
-╚══════╝╚══════╝╚══════╝╚══════╝╚══════╝╚══════╝╚══════╝╚══════╝╚══════╝╚══════╝                                                                                              
-     ██████╗ ██╗   ██╗██╗███████╗    ████████╗███████╗███████╗████████╗██╗                      
-    ██╔═══██╗██║   ██║██║╚══███╔╝    ╚══██╔══╝██╔════╝██╔════╝╚══██╔══╝██║                      
-    ██║   ██║██║   ██║██║  ███╔╝        ██║   █████╗  ███████╗   ██║   ██║                      
-    ██║▄▄ ██║██║   ██║██║ ███╔╝         ██║   ██╔══╝  ╚════██║   ██║   ╚═╝                      
-    ╚██████╔╝╚██████╔╝██║███████╗       ██║   ███████╗███████║   ██║   ██╗                      
-     ╚══▀▀═╝  ╚═════╝ ╚═╝╚══════╝       ╚═╝   ╚══════╝╚══════╝   ╚═╝   ╚═╝                      
-███████╗███████╗███████╗███████╗███████╗███████╗███████╗███████╗███████╗███████╗
-╚══════╝╚══════╝╚══════╝╚══════╝╚══════╝╚══════╝╚══════╝╚══════╝╚══════╝╚══════╝
-            """)
-
+            print("=" * 34)
+            print(r"""   ┌─┐ ┬ ┬┬┌─┐  ┌┬┐┌─┐┌─┐┌┬┐┬
+   │─┼┐│ ││┌─┘   │ ├┤ └─┐ │ │
+   └─┘└└─┘┴└─┘   ┴ └─┘└─┘ ┴ o""")
+            print("="*34)
             print("THIS QUIZ CONISTS OF 25 ITEMS FOCUSING ON THE DIFFERENT ELEMENTS OF THE PERIODIC TABLE")
             print("MAKE SURE YOU READ THE QUESTIONS CAREFULLY AND TYPE WHAT IS ASKED FOR")
+            time.sleep(1)
             questions = data["questions"][0]
             answers = data["answers"][0]
 
@@ -249,28 +251,39 @@ while True:
                     print(f"Explanation: This is because {question} = {correct_answer}")
                     print("="*50)
                     print()
-             
+
+            # Final score
+            print(f"Quiz finished! You got {score}/{total} correct.")
+
         elif choice == 3:
             print("What is our educational game about?")
             time.sleep(2)
-            print("Our code is an informative quiz-type project to test your knowledge about the periodic table of elements and learn extra knowledge about it ")
+            print(
+                "Our code is an informative quiz-type project to test your knowledge about the periodic table of elements and learn extra knowledge about it ")
             time.sleep(3.5674)
             print("How to play our game:")
             time.sleep(2)
             print("You can pick between 4 choices in the menu")
             time.sleep(3)
-            print("If you pick #1, you will see an ascii art of the periodic table and will have a chance of looking up an element by inputting it's atomic number.")
+            print(
+                "If you pick #1, you will see an ascii art of the periodic table and will have a chance of looking up an element by inputting it's atomic number.")
             time.sleep(4)
-            print("If you pick #2, it should supposedly show a quiz section, but is unfortunately unavailable until further notice")
+            print(
+                "If you pick #2, it should supposedly show a quiz section, but is unfortunately unavailable until further notice")
             time.sleep(4)
-            print("If you choose #3, it will state the general purpose of this code, and how to use it (What you're reading right now :)  )")
+            print(
+                "If you choose #3, it will state the general purpose of this code, and how to use it (What you're reading right now :)  )")
             time.sleep(4)
             print("If you choose #4, the code will end ")
         elif choice == 4:
             print("Thanks for playing! Goodbye.")
             break
         else:
-            print("retry")
-
+            print()
+            print("=" * 60)
+            print("Invalid input, please enter 1-4.")
+            print("=" * 60)
+            print()
+            time.sleep(1)
     except ValueError:
         print("Invalid menu choice. Please enter 1, 2, 3, or 4.")
