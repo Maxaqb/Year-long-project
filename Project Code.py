@@ -7,8 +7,11 @@
 
 # Importing periodictable to make life easier
 import periodictable
+# Used for delays to improve user experience
 import time
+# Used to load quiz questions from a file
 import json
+ # Used to shuffle quiz questions
 import random
 
 from numpy.ma.core import append
@@ -19,6 +22,7 @@ with open('quiz-data.json', 'r') as file:
 # Defining variables and functions
 
 # The ascii art of the periodic table
+# ASCII art representation of the periodic table shown to the user
 asciiArt = r"""
      |                 |                 |                 |                 |                 |                 |                 |                 |                 |                 |                 |                 |                 |                 |                 |                 |                 |                 |
      |        1        |        2        |        3        |        4        |        5        |        6        |        7        |        8        |        9        |       10        |       11        |       12        |       13        |       14        |       15        |       16        |       17        |       18        |
@@ -121,7 +125,8 @@ asciiArt = r"""
     """
 
 
-# Function for element lookup
+# Function that allows the user to input an atomic number
+# and displays detailed information about that element
 def element_lookup():
     print("="*43)
     print(r""" ┌─┐┬  ┌─┐┌┬┐┌─┐┌┐┌┌┬┐  ┬  ┌─┐┌─┐┬┌─┬ ┬┌─┐
@@ -133,10 +138,12 @@ def element_lookup():
     # Loop if the user inputs an invalid choice
     while True:
         try:
+            # Ask user for atomic number and convert input to integer
             atomicNumber = int(input("Enter the atomic number of an element: "))
 
-            # The validation check
+            # Check if input is within valid periodic table range
             if 1 <= atomicNumber <= 118:
+                # Retrieve element data using the periodictable library
                 element = periodictable.elements[atomicNumber]
                 time.sleep(.5)
                 print('Name:', element.name)
@@ -151,6 +158,7 @@ def element_lookup():
                 time.sleep(.5)
                 print('Electron:', periodictable.elements[atomicNumber].number,
                       " (same as the number of protons since there is no specific charge)")
+                # Estimate neutrons by subtracting atomic number (protons) from atomic mass
                 averageNeutrons = round(element.mass - element.number)
                 time.sleep(.5)
                 print(f"Average Number of Neutrons: {averageNeutrons}")
@@ -163,15 +171,14 @@ def element_lookup():
                 print("=" * 60)
                 print()
         except ValueError:
-            # If user doesn't input a number
+            # Handles non-numeric input from the user
             print()
             print("=" * 60)
             print("Invalid input. Please enter a number.")
             print("=" * 60)
             print()
 
-
-# Main Program Loop
+# Main game loop (runs until the user chooses to exit)
 while True:
     print()
     print("=" * 62)
@@ -196,6 +203,7 @@ while True:
     try:
         print("Hey There!")
         print("I recommend you to see the periodic table before choosing the quiz :D")
+        # Get user's menu selection
         choice = int(input("Please enter your choice(1, 2, 3, or 4): "))
         print()
 
@@ -212,7 +220,7 @@ while True:
             print()
             time.sleep(1.5)
 
-            # Calling the Element lookup function
+            # Call the element lookup feature after displaying the table
             element_lookup()
 
         elif choice == 2:
@@ -224,23 +232,27 @@ while True:
             print("THIS QUIZ CONISTS OF 25 ITEMS FOCUSING ON THE DIFFERENT ELEMENTS OF THE PERIODIC TABLE")
             print("MAKE SURE YOU READ THE QUESTIONS CAREFULLY AND TYPE WHAT IS ASKED FOR")
             time.sleep(1)
+            # Extract questions and answers from JSON data
             questions = data["questions"][0]
             answers = data["answers"][0]
-
+            
+            # Initialize score tracking
             score = 0
             total = len(questions)
 
             # Randomize question order
             question_items = list(questions.items())
+            # Randomize question order for variety
             random.shuffle(question_items)
 
-            # Ask questions
+            # Loop through each question and display it to the user
             for i, (key, question) in enumerate(question_items, start=1):
                 print(f"Q{i}: {question}")
                 user_answer = input("Your answer: ").strip()
 
                 correct_answer = answers[str(list(questions.keys()).index(key) + 1)]
-
+                
+                # Compare user answer with correct answer (case-insensitive)
                 if user_answer.lower() == correct_answer.lower():
                     print("Correct!")
                     print()
@@ -248,6 +260,7 @@ while True:
                 else:
                     print()
                     print(f"Wrong :( The correct answer is '{correct_answer}'.")
+                    # Provide simple explanation for incorrect answers
                     print(f"Explanation: This is because {question} = {correct_answer}")
                     print("="*100)
                     print()
@@ -277,6 +290,7 @@ while True:
             print("If you choose #4, the code will end ")
         elif choice == 4:
             print("Thanks for playing! Goodbye.")
+            # Exit the main loop and end the game
             break
         else:
             print()
